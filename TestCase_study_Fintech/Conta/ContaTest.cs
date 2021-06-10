@@ -4,9 +4,11 @@ namespace TestCase_study_Fintech
 {
     public class Tests
     {
+
         [SetUp]
         public void Setup()
         {
+
         }
 
         [Test]
