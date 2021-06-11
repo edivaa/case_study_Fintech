@@ -38,7 +38,6 @@ namespace TestCase_study_Fintech
             var conta = new Conta() { Nome = "Robson", Email="robson@gmail.com", NumConta=0, Saldo =0 };  
             var valor = 2001;
 
-
             try{
 
                 //act

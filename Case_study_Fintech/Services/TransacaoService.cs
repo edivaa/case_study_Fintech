@@ -23,7 +23,9 @@ namespace Case_study_Fintech.Services
         public Decimal SacarPix(int? numConta, decimal valor) {
 
                var conta = contaService.GetConta(numConta);
-
+                if(!conta.possuiSaldo()) {
+                    throw new Exception("Conta sem saldo");
+                } 
 
                return conta.Saldo-valor;
         }

@@ -12,5 +12,10 @@ namespace Case_study_Fintech.Models
         public string Email { get; set; }
         public int? NumConta { get; set; }
         public decimal Saldo { get; set; }
+
+
+        public bool possuiSaldo(){
+            return Saldo > 0 ;
+        }
     }
 }
