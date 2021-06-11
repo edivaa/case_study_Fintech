@@ -15,8 +15,9 @@ namespace Case_study_Fintech.Repositories
           contas  = new List<Conta>() {
                 new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 12556, Saldo =1000000 },
                 new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 32897, Saldo =4000000 },
-                new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 45896, Saldo =9000000 }
-          };
+                new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 45896, Saldo =9000000 },
+                 new Conta() { Nome = "Robson", SobreNome = "Santana", Email="robson@gmail.com"   , NumConta=58996, Saldo =0 }
+        };
         }
 
         public List<Conta> GetContas()
