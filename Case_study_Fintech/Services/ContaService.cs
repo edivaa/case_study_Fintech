@@ -26,5 +26,12 @@ namespace Case_study_Fintech.Services
         {
             return contaRepository.GetConta(id);
         }
+
+        public Conta CreateConta(Conta conta) {
+
+               // if(contaRepository.GetConta(conta))
+
+               return null;
+        }
     }
 }
