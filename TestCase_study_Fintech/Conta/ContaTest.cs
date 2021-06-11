@@ -26,5 +26,18 @@ namespace TestCase_study_Fintech
             //Assert 
             Assert.IsNotNull(contas);
         }
+
+        [Test]
+        public void ObterConta()
+        {
+            //arrange
+            var numConta = 12556; 
+
+            //act
+            var conta = contaService.GetConta(numConta);
+
+            //Assert 
+            Assert.AreEqual(numConta, conta.NumConta);
+        }
     }
 }
