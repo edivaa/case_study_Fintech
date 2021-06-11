@@ -59,12 +59,17 @@ namespace TestCase_study_Fintech
         {
             //arrange
             var conta = new Conta() { Nome = "Paulo Santos", Email = "paulo@gmail.com", NumConta = 32897, Saldo = 0 };
+            try
+            {
+                //act
+                var newConta = contaService.CreateConta(conta);
 
-           
-             //act
-             var newConta = contaService.CreateConta(conta);
-
-             Assert.AreEqual(conta.NumConta, newConta.NumConta);
+            }
+            catch (System.Exception ex)
+            {
+                //assert 
+                Assert.AreEqual("Conta ja existe", ex.Message);
+            }
 
 
         }
