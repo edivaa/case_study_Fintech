@@ -7,9 +7,10 @@ namespace Case_study_Fintech.Models
 {
     public class Conta
     {
-        public string CriarContar()
-        {
-            return "";
-        }
+        public string Nome { get; set; }
+        public string SobreNome { get; set; }
+        public string Email { get; set; }
+        public int? NumConta { get; set; }
+        public decimal Saldo { get; set; }
     }
 }
