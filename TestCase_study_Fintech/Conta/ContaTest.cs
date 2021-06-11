@@ -1,6 +1,7 @@
 using Case_study_Fintech.Models;
 using Case_study_Fintech.Services;
 using NUnit.Framework;
+using System;
 
 namespace TestCase_study_Fintech
 {
@@ -52,26 +53,20 @@ namespace TestCase_study_Fintech
             //Assert 
             Assert.AreEqual(newConta.Nome, conta.Nome);
             Assert.AreEqual(newConta.Email, conta.Email);
+            Assert.That(newConta.NumConta, Is.EqualTo(conta.NumConta));
         }
 
-        [Test]
+
+
+        [Test, Description("Conta conta falha")]
+        //[TestCase(new Conta() { Nome = "Paulo Santos", Email = "paulo@gmail.com", NumConta = 32897, Saldo = 0 }) ]
         public void CriarContaFalha()
         {
             //arrange
             var conta = new Conta() { Nome = "Paulo Santos", Email = "paulo@gmail.com", NumConta = 32897, Saldo = 0 };
-            try
-            {
-                //act
-                var newConta = contaService.CreateConta(conta);
 
-            }
-            catch (System.Exception ex)
-            {
-                //assert 
-                Assert.AreEqual("Conta ja existe", ex.Message);
-            }
-
-
+            //act //assert 
+            Assert.Throws<Exception>(() => contaService.CreateConta(conta));
         }
     }
 }
