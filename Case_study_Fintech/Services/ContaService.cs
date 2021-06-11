@@ -19,7 +19,7 @@ namespace Case_study_Fintech.Services
         {
             return contaRepository.GetContas();
         }
-        public Conta GetConta(int id)
+        public Conta GetConta(int? id)
         {
             return contaRepository.GetConta(id);
         }

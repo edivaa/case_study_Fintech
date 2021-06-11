@@ -20,7 +20,7 @@ namespace Case_study_Fintech.Services
             return contaService.GetContas();
         }
     
-        public Decimal SacarPix(int numConta, decimal valor) {
+        public Decimal SacarPix(int? numConta, decimal valor) {
 
                var conta = contaService.GetConta(numConta);
 

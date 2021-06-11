@@ -7,6 +7,7 @@ namespace TestCase_study_Fintech
     public class TransacaoTests
     {
         private TransacaoService transacaoService;  
+        private ContaService contaService;  
 
         [SetUp]
         public void Setup()
@@ -28,6 +29,30 @@ namespace TestCase_study_Fintech
 
             //Assert 
             Assert.IsTrue( valorSaque > 0);
+        }
+
+         [Test]
+        public void TransacaoSaqueSemSaldo()
+        {
+            //arrange
+            var conta = new Conta() { Nome = "Robson", Email="robson@gmail.com", NumConta=0, Saldo =0 };  
+            var valor = 2001;
+
+
+            try{
+
+                //act
+                var newConta = contaService.CreateConta(conta);  
+                var valorSaque = transacaoService.SacarPix(newConta.NumConta, valor);
+            }
+            catch (System.Exception ex)
+            {
+
+               //Assert 
+               Assert.Equals("Conta sem saldo", ex.Message);
+
+            }
+
         }
 
        
