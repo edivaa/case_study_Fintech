@@ -5,6 +5,7 @@ using System;
 
 namespace TestCase_study_Fintech
 {
+    [Category("NUnit")]
     public class TransacaoTests
     {
         private TransacaoService transacaoService;  

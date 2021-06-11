@@ -5,7 +5,8 @@ using System;
 
 namespace TestCase_study_Fintech
 {
-    public class Tests
+    [Category("NUnit")]
+    public class TestsConta
     {
         private ContaService contaService;  
 
@@ -68,5 +69,6 @@ namespace TestCase_study_Fintech
             //act //assert 
             Assert.Throws<Exception>(() => contaService.CreateConta(conta));
         }
+    
     }
 }
