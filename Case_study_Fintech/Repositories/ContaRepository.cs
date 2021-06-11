@@ -24,9 +24,15 @@ namespace Case_study_Fintech.Repositories
             return contas;
         }
 
-        public Conta GetConta(int numConta)
+        public Conta GetConta(int? numConta)
         {
             return contas.FirstOrDefault(c=>c.NumConta == numConta);
+        }
+
+        public Conta AdicinarConta(Conta conta) {
+            contas.Add(conta);
+
+            return GetConta(conta.NumConta);
         }
 
     }

@@ -10,28 +10,30 @@ namespace Case_study_Fintech.Services
     public class ContaService
     {
         readonly ContaRepository contaRepository;
-         
+         private Random random = new Random();
         public ContaService()
         {
             contaRepository = new ContaRepository();
         }
-
-
         public List<Conta> GetContas()
         {
             return contaRepository.GetContas();
         }
-
         public Conta GetConta(int id)
         {
             return contaRepository.GetConta(id);
         }
-
         public Conta CreateConta(Conta conta) {
 
-               // if(contaRepository.GetConta(conta))
+               var contaExiste = contaRepository.GetConta(conta.NumConta);
+               if(contaExiste != null) {
+                   throw new Exception("Conta ja existe");
+               }else {
+                   conta.NumConta = random.Next(0, 10000);
+                   contaRepository.AdicinarConta(conta);
+               }
 
-               return null;
+               return conta;
         }
     }
 }
