@@ -9,22 +9,23 @@ namespace Case_study_Fintech.Services
 {
     public class TransacaoService
     {
-        readonly ContaRepository contaRepository;
+        readonly ContaService contaService;
          private Random random = new Random();
         public TransacaoService()
         {
-            contaRepository = new ContaRepository();
+            contaService = new ContaService();
         }
         public List<Conta> GetContas()
         {
-            return contaRepository.GetContas();
+            return contaService.GetContas();
         }
     
-        public Decimal SacarPix(int numConta) {
+        public Decimal SacarPix(int numConta, decimal valor) {
 
-               //var contaExiste = contaRepository.GetConta(numConta);
+               var conta = contaService.GetConta(numConta);
 
-               throw new NotImplementedException();
+
+               return conta.Saldo-valor;
         }
     }
 }

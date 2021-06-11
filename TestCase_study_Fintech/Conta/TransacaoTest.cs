@@ -21,9 +21,10 @@ namespace TestCase_study_Fintech
         {
             //arrange
             var numConta = 12556; 
+            var valor = 2001;
 
             //act
-            var valorSaque = transacaoService.SacarPix(numConta);
+            var valorSaque = transacaoService.SacarPix(numConta, valor);
 
             //Assert 
             Assert.IsTrue( valorSaque > 0);
