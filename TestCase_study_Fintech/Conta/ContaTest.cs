@@ -44,7 +44,7 @@ namespace TestCase_study_Fintech
         public void CriarConta()
         {
             //arrange
-            var conta = new Conta() { Nome = "Paulo Santos", Email="paulo@gmail.com", NumConta=0, Saldo =0 }; 
+            var conta = new Conta() { Nome = "Paulo Santos", Email="paulo@gmail.com", NumConta=12556, Saldo =0 }; 
 
             //act
             var newConta = contaService.CreateConta(conta);
@@ -52,6 +52,20 @@ namespace TestCase_study_Fintech
             //Assert 
             Assert.AreEqual(newConta.Nome, conta.Nome);
             Assert.AreEqual(newConta.Email, conta.Email);
+        }
+
+        [Test]
+        public void CriarContaFalha()
+        {
+            //arrange
+            var conta = new Conta() { Nome = "Paulo Santos", Email="paulo@gmail.com", NumConta=0, Saldo =0 }; 
+
+            //act
+            var newConta = contaService.CreateConta(conta);
+
+            //Assert 
+            Assert.AreEqual(newConta.Nome, conta.Nome);
+            
         }
     }
 }
