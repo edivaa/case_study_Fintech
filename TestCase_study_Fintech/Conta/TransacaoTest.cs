@@ -1,6 +1,7 @@
 using Case_study_Fintech.Models;
 using Case_study_Fintech.Services;
 using NUnit.Framework;
+using System;
 
 namespace TestCase_study_Fintech
 {
@@ -13,6 +14,7 @@ namespace TestCase_study_Fintech
         public void Setup()
         {
             transacaoService = new TransacaoService();
+            contaService = new ContaService();
         }
 
 
@@ -32,26 +34,15 @@ namespace TestCase_study_Fintech
         }
 
          [Test]
-        public void TransacaoSaqueSemSaldo()
+        public void TransacaoSaqueSemSaldoFalha()
         {
-            //arrange
-            var conta = new Conta() { Nome = "Robson", Email="robson@gmail.com", NumConta=0, Saldo =0 };  
-            var valor = 2001;
-
-            try{
-
-                //act
-                var newConta = contaService.CreateConta(conta);  
-                var valorSaque = transacaoService.SacarPix(newConta.NumConta, valor);
-            }
-            catch (System.Exception ex)
-            {
-
-               //Assert 
-               Assert.Equals("Conta sem saldo", ex.Message);
-
-            }
-
+             //arrange
+             var numConta = 58996;
+             var valor = 2001;
+      
+             //assert 
+             Assert.Throws<Exception>(()=> transacaoService.SacarPix(numConta , valor));
+        
         }
 
        
