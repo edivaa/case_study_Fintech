@@ -22,12 +22,12 @@ namespace Case_study_Fintech.Services
     
         public Decimal SacarPix(int? accountNumber, decimal value) {
 
-               var conta = accountService.GetAccount(accountNumber);
-                if(!conta.HasBalance()) {
+               var account = accountService.GetAccount(accountNumber);
+                if(!account.HasBalance()) {
                     throw new Exception("Conta sem saldo");
                 } 
 
-               return conta.Balance-value;
+               return account.Balance-value;
         }
     }
 }
