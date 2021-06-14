@@ -15,21 +15,21 @@ namespace Case_study_Fintech.Services
         {
             contaRepository = new ContaRepository();
         }
-        public List<Conta> GetContas()
+        public List<Account> GetContas()
         {
             return contaRepository.GetContas();
         }
-        public Conta GetConta(int? id)
+        public Account GetConta(int? id)
         {
             return contaRepository.GetConta(id);
         }
-        public Conta CreateConta(Conta conta) {
+        public Account CreateConta(Account conta) {
 
-               var contaExiste = contaRepository.GetConta(conta.NumConta);
+               var contaExiste = contaRepository.GetConta(conta.AccountNumber);
                if(contaExiste != null) {
                    throw new Exception("Conta ja existe");
                }else {
-                   conta.NumConta = random.Next(0, 10000);
+                   conta.AccountNumber = random.Next(0, 10000);
                    contaRepository.AdicinarConta(conta);
                }
 

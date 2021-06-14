@@ -39,22 +39,22 @@ namespace TestCase_study_Fintech
             var conta = contaService.GetConta(numConta);
 
             //Assert 
-            Assert.AreEqual(numConta, conta.NumConta);
+            Assert.AreEqual(numConta, conta.AccountNumber);
         }
 
         [Test]
         public void CriarConta()
         {
             //arrange
-            var conta = new Conta() { Nome = "Paulo Santos", Email="paulo@gmail.com", NumConta=0, Saldo =0 }; 
+            var conta = new Account() { Name = "Paulo Santos", Email="paulo@gmail.com", AccountNumber=0, Balance =0 }; 
 
             //act
             var newConta = contaService.CreateConta(conta);
 
             //Assert 
-            Assert.AreEqual(newConta.Nome, conta.Nome);
+            Assert.AreEqual(newConta.Name, conta.Name);
             Assert.AreEqual(newConta.Email, conta.Email);
-            Assert.That(newConta.NumConta, Is.EqualTo(conta.NumConta));
+            Assert.That(newConta.AccountNumber, Is.EqualTo(conta.AccountNumber));
         }
 
 
@@ -64,7 +64,7 @@ namespace TestCase_study_Fintech
         public void CriarContaFalha()
         {
             //arrange
-            var conta = new Conta() { Nome = "Paulo Santos", Email = "paulo@gmail.com", NumConta = 32897, Saldo = 0 };
+            var conta = new Account() { Name = "Paulo Santos", Email = "paulo@gmail.com", AccountNumber = 32897, Balance = 0 };
 
             //act //assert 
             Assert.Throws<Exception>(() => contaService.CreateConta(conta));

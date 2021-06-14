@@ -15,7 +15,7 @@ namespace Case_study_Fintech.Services
         {
             contaService = new ContaService();
         }
-        public List<Conta> GetContas()
+        public List<Account> GetContas()
         {
             return contaService.GetContas();
         }
@@ -23,11 +23,11 @@ namespace Case_study_Fintech.Services
         public Decimal SacarPix(int? numConta, decimal valor) {
 
                var conta = contaService.GetConta(numConta);
-                if(!conta.possuiSaldo()) {
+                if(!conta.HasBalance()) {
                     throw new Exception("Conta sem saldo");
                 } 
 
-               return conta.Saldo-valor;
+               return conta.Balance-valor;
         }
     }
 }

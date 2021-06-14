@@ -8,32 +8,32 @@ namespace Case_study_Fintech.Repositories
 {
     public class ContaRepository
     {
-        private List<Conta> contas;
+        private List<Account> contas;
 
         public ContaRepository()
         {
-          contas  = new List<Conta>() {
-                new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 12556, Saldo =1000000 },
-                new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 32897, Saldo =4000000 },
-                new Conta() { Nome = "Antonio", SobreNome = "Santos", Email = "antonio@gmail.com", NumConta = 45896, Saldo =9000000 },
-                 new Conta() { Nome = "Robson", SobreNome = "Santana", Email="robson@gmail.com"   , NumConta=58996, Saldo =0 }
+          contas  = new List<Account>() {
+                new Account() { Name = "Antonio", LastName = "Santos", Email = "antonio@gmail.com", AccountNumber = 12556, Balance =1000000 },
+                new Account() { Name = "Antonio", LastName = "Santos", Email = "antonio@gmail.com", AccountNumber = 32897, Balance =4000000 },
+                new Account() { Name = "Antonio", LastName = "Santos", Email = "antonio@gmail.com", AccountNumber = 45896, Balance =9000000 },
+                 new Account() { Name = "Robson", LastName = "Santana", Email="robson@gmail.com"   , AccountNumber=58996, Balance =0 }
         };
         }
 
-        public List<Conta> GetContas()
+        public List<Account> GetContas()
         {
             return contas;
         }
 
-        public Conta GetConta(int? numConta)
+        public Account GetConta(int? numConta)
         {
-            return contas.FirstOrDefault(c=>c.NumConta == numConta);
+            return contas.FirstOrDefault(c=>c.AccountNumber == numConta);
         }
 
-        public Conta AdicinarConta(Conta conta) {
+        public Account AdicinarConta(Account conta) {
             contas.Add(conta);
 
-            return GetConta(conta.NumConta);
+            return GetConta(conta.AccountNumber);
         }
 
     }
