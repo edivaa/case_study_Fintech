@@ -9,13 +9,13 @@ namespace TestCase_study_Fintech
     public class TransacaoTests
     {
         private TransacaoService transacaoService;  
-        private ContaService contaService;  
+        private AccountService contaService;  
 
         [SetUp]
         public void Setup()
         {
             transacaoService = new TransacaoService();
-            contaService = new ContaService();
+            contaService = new AccountService();
         }
 
 

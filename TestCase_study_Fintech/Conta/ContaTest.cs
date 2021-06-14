@@ -8,12 +8,12 @@ namespace TestCase_study_Fintech
     [Category("NUnit")]
     public class TestsConta
     {
-        private ContaService contaService;  
+        private AccountService contaService;  
 
         [SetUp]
         public void Setup()
         {
-            contaService = new ContaService();
+            contaService = new AccountService();
         }
 
 
@@ -23,7 +23,7 @@ namespace TestCase_study_Fintech
             //arrange
 
             //act
-            var contas = contaService.GetContas();
+            var contas = contaService.GetAccounts();
 
             //Assert 
             Assert.IsNotNull(contas);
@@ -36,7 +36,7 @@ namespace TestCase_study_Fintech
             var numConta = 12556; 
 
             //act
-            var conta = contaService.GetConta(numConta);
+            var conta = contaService.GetAccount(numConta);
 
             //Assert 
             Assert.AreEqual(numConta, conta.AccountNumber);
@@ -49,7 +49,7 @@ namespace TestCase_study_Fintech
             var conta = new Account() { Name = "Paulo Santos", Email="paulo@gmail.com", AccountNumber=0, Balance =0 }; 
 
             //act
-            var newConta = contaService.CreateConta(conta);
+            var newConta = contaService.CreateAnAccount(conta);
 
             //Assert 
             Assert.AreEqual(newConta.Name, conta.Name);
@@ -67,7 +67,7 @@ namespace TestCase_study_Fintech
             var conta = new Account() { Name = "Paulo Santos", Email = "paulo@gmail.com", AccountNumber = 32897, Balance = 0 };
 
             //act //assert 
-            Assert.Throws<Exception>(() => contaService.CreateConta(conta));
+            Assert.Throws<Exception>(() => contaService.CreateAnAccount(conta));
         }
     
     }

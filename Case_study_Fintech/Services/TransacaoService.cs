@@ -9,20 +9,20 @@ namespace Case_study_Fintech.Services
 {
     public class TransacaoService
     {
-        readonly ContaService contaService;
+        readonly AccountService contaService;
          private Random random = new Random();
         public TransacaoService()
         {
-            contaService = new ContaService();
+            contaService = new AccountService();
         }
         public List<Account> GetContas()
         {
-            return contaService.GetContas();
+            return contaService.GetAccounts();
         }
     
         public Decimal SacarPix(int? numConta, decimal valor) {
 
-               var conta = contaService.GetConta(numConta);
+               var conta = contaService.GetAccount(numConta);
                 if(!conta.HasBalance()) {
                     throw new Exception("Conta sem saldo");
                 } 
