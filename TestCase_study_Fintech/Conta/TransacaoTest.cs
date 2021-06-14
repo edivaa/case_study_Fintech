@@ -28,7 +28,7 @@ namespace TestCase_study_Fintech
             var valor = 2001;
 
             //act
-            var valorSaque = transacaoService.SacarPix(numConta, valor);
+            var valorSaque = transacaoService.WithdrawMoneyByPix(numConta, valor);
 
             //Assert 
             Assert.IsTrue( valorSaque > 0);
@@ -42,7 +42,7 @@ namespace TestCase_study_Fintech
              var valor = 2001;
       
              //assert 
-             Assert.Throws<Exception>(()=> transacaoService.SacarPix(numConta , valor));
+             Assert.Throws<Exception>(()=> transacaoService.WithdrawMoneyByPix(numConta , valor));
         
         }
 

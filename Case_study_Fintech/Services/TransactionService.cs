@@ -10,7 +10,7 @@ namespace Case_study_Fintech.Services
     public class TransactionService
     {
         readonly AccountService accountService;
-         private Random random = new Random();
+    
         public TransactionService()
         {
             accountService = new AccountService();
@@ -20,7 +20,7 @@ namespace Case_study_Fintech.Services
             return accountService.GetAccounts();
         }
     
-        public Decimal SacarPix(int? accountNumber, decimal value) {
+        public Decimal WithdrawMoneyByPix(int? accountNumber, decimal value) {
 
                var account = accountService.GetAccount(accountNumber);
                 if(!account.HasBalance()) {
