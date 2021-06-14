@@ -59,9 +59,9 @@ namespace TestCase_study_Fintech
 
 
 
-        [Test, Description("Conta conta falha")]
+        [Test, Description("Não deve criar uma Conta")]
         //[TestCase(new Conta() { Nome = "Paulo Santos", Email = "paulo@gmail.com", NumConta = 32897, Saldo = 0 }) ]
-        public void NotShouldCreateAnAccount()
+        public void ShouldNotCreateAnAccount()
         {
             //arrange
             var account = new Account() { Name = "Paulo Santos", Email = "paulo@gmail.com", AccountNumber = 32897, Balance = 0 };
