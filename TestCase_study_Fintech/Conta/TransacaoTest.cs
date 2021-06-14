@@ -8,13 +8,13 @@ namespace TestCase_study_Fintech
     [Category("NUnit")]
     public class TransacaoTests
     {
-        private TransacaoService transacaoService;  
+        private TransactionService transacaoService;  
         private AccountService contaService;  
 
         [SetUp]
         public void Setup()
         {
-            transacaoService = new TransacaoService();
+            transacaoService = new TransactionService();
             contaService = new AccountService();
         }
 

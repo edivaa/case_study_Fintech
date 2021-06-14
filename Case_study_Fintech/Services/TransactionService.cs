@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace Case_study_Fintech.Services
 {
-    public class TransacaoService
+    public class TransactionService
     {
-        readonly AccountService contaService;
+        readonly AccountService accountService;
          private Random random = new Random();
-        public TransacaoService()
+        public TransactionService()
         {
-            contaService = new AccountService();
+            accountService = new AccountService();
         }
-        public List<Account> GetContas()
+        public List<Account> GetAccounts()
         {
-            return contaService.GetAccounts();
+            return accountService.GetAccounts();
         }
     
-        public Decimal SacarPix(int? numConta, decimal valor) {
+        public Decimal SacarPix(int? accountNumber, decimal value) {
 
-               var conta = contaService.GetAccount(numConta);
+               var conta = accountService.GetAccount(accountNumber);
                 if(!conta.HasBalance()) {
                     throw new Exception("Conta sem saldo");
                 } 
 
-               return conta.Balance-valor;
+               return conta.Balance-value;
         }
     }
 }
