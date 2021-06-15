@@ -14,8 +14,13 @@ namespace Case_study_Fintech.Models
         public decimal Balance { get; set; }
 
 
-        public bool HasBalance(){
-            return Balance > 0 ;
+        public bool HasBalance() {
+            return Balance > 0;
+        }
+
+        public bool hasBalanceForValue(decimal value)
+        {
+            return Balance - value > 0;
         }
     }
 }

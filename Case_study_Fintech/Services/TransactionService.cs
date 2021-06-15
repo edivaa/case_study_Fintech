@@ -10,7 +10,7 @@ namespace Case_study_Fintech.Services
     public class TransactionService
     {
         readonly AccountService accountService;
-    
+
         public TransactionService()
         {
             accountService = new AccountService();
@@ -19,15 +19,25 @@ namespace Case_study_Fintech.Services
         {
             return accountService.GetAccounts();
         }
-    
+
         public Decimal WithdrawMoneyByPix(int? accountNumber, decimal value) {
 
-               var account = accountService.GetAccount(accountNumber);
-                if(!account.HasBalance()) {
-                    throw new Exception("Conta sem saldo");
-                } 
+            var account = accountService.GetAccount(accountNumber);
+            if (!account.HasBalance()) {
+                throw new Exception("Conta sem saldo");
+            }
 
-               return account.Balance-value;
+            ValidateWithdrawalAmount(account, value);
+
+            return account.Balance - value;
+        }
+
+        public void ValidateWithdrawalAmount(Account account, decimal value)
+        {
+            if (!account.hasBalanceForValue(value))
+            {
+                throw new Exception("valor acima do saldo");
+            }
         }
     }
 }
