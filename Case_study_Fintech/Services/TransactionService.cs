@@ -25,6 +25,7 @@ namespace Case_study_Fintech.Services
             var account = accountService.GetAccount(accountNumber);
           
             ValidateAccountBalance(account, value);
+            ValidateMinimumAmountAllowedWithdrawal(value);
 
             return account.Balance - value;
         }
@@ -39,6 +40,15 @@ namespace Case_study_Fintech.Services
             if (!account.hasBalanceForValue(value))
             {
                 throw new Exception("valor acima do saldo");
+            }
+        }
+
+
+        public void ValidateMinimumAmountAllowedWithdrawal(decimal value)
+        {
+            if (value < 2000)
+            {
+                throw new Exception("Valor minimo igual ou acima de 2000");
             }
         }
     }
