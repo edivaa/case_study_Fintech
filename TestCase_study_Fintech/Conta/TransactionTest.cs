@@ -67,7 +67,7 @@ namespace TestCase_study_Fintech
         {
 
             //arrange
-            var accountNumber = 58996;
+            var accountNumber = 12556;
             var value = 1999;
 
 
