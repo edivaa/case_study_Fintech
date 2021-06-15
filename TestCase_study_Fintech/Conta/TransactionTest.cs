@@ -39,10 +39,13 @@ namespace TestCase_study_Fintech
              //arrange
              var accountNumber = 58996;
              var value = 2001;
-      
+
+           
              //assert 
-             Assert.Throws<Exception>(()=> transactionService.WithdrawMoneyByPix(accountNumber , value));
-        
+               Assert.That(() => transactionService.WithdrawMoneyByPix(accountNumber, value),
+                Throws.TypeOf<Exception>()
+                .With.Matches<Exception>(mess => mess.Message == "Conta sem saldo"));
+
         }
 
         [Test]
@@ -52,8 +55,7 @@ namespace TestCase_study_Fintech
             var accountNumber = 12556;
             var value = 1100000;
             
-            //Act
-            //assert 
+            //Act //assert 
             Assert.That(() => transactionService.WithdrawMoneyByPix(accountNumber, value),
                 Throws.TypeOf<Exception>()
                 .With.Matches<Exception>(mess => mess.Message =="valor acima do saldo"));
