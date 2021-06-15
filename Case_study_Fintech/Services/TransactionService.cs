@@ -23,17 +23,19 @@ namespace Case_study_Fintech.Services
         public Decimal WithdrawMoneyByPix(int? accountNumber, decimal value) {
 
             var account = accountService.GetAccount(accountNumber);
-            if (!account.HasBalance()) {
-                throw new Exception("Conta sem saldo");
-            }
-
-            ValidateWithdrawalAmount(account, value);
+          
+            ValidateAccountBalance(account, value);
 
             return account.Balance - value;
         }
 
-        public void ValidateWithdrawalAmount(Account account, decimal value)
+        public void ValidateAccountBalance(Account account, decimal value)
         {
+            if (!account.HasBalance())
+            {
+                throw new Exception("Conta sem saldo");
+            }
+
             if (!account.hasBalanceForValue(value))
             {
                 throw new Exception("valor acima do saldo");
