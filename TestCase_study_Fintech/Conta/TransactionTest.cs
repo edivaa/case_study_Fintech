@@ -33,7 +33,7 @@ namespace TestCase_study_Fintech
             Assert.IsTrue( withdrawalValue > 0);
         }
 
-         [Test]
+        [Test]
         public void ShouldReturnErrorWithoutBalance()
         {
              //arrange
@@ -45,6 +45,22 @@ namespace TestCase_study_Fintech
         
         }
 
-       
+        [Test]
+        public void ShouldReturnErrorBalanceLessThanWithdrawalAmount()
+        {
+            //arrange Balance =1000000
+            var accountNumber = 12556;
+            var value = 1100000;
+            //Act
+            var saldo = transactionService.WithdrawMoneyByPix(accountNumber, value);
+
+            //assert 
+            //Assert.That(saldo > 0);
+            Assert.Throws<Exception>(() => transactionService.WithdrawMoneyByPix(accountNumber, value));
+
+        }
+
+
+
     }
 }
