@@ -26,7 +26,7 @@ namespace TestCase_study_Fintech
             var accounts = accountService.GetAccounts();
 
             //Assert 
-            Assert.IsNotNull(accounts);
+            Assert.That(accounts, Is.Not.Empty);
         }
 
         [Test]
