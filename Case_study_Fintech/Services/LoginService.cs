@@ -8,10 +8,24 @@ namespace Case_study_Fintech.Services
 {
     public class LoginService
     {
+      
 
-        public Login GetAuthentication(Login login)
+        public Login GetAuthentication(Login newLogin)
         {
-            throw new NotImplementedException();
+           
+            return ApiAuthentication(newLogin.UserName, newLogin.Password);
+        }
+
+
+
+        private Login ApiAuthentication(string userName, string password)
+        {
+           List<Login> loginList = new List<Login> { 
+               new Login { UserName = "paulo", Password = "25636" }
+           };
+
+
+            return loginList.FirstOrDefault(user => user.UserName.Equals(userName) && user.Password.Equals(password));
         }
     }
 }
