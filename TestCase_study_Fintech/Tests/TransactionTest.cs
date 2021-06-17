@@ -79,6 +79,21 @@ namespace TestCase_study_Fintech
         }
 
 
+        [Test]
+        public void ShouldReturnTransferHistory()
+        {
+
+            //arrange
+            var accountNumber = 12556;
+
+            //act
+            var history = transactionService.TransferHistory(accountNumber);
+
+            //assert 
+            Assert.That(history, Is.Not.Empty);
+
+        }
+
 
     }
 }

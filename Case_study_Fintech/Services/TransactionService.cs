@@ -51,5 +51,10 @@ namespace Case_study_Fintech.Services
                 throw new Exception("Valor minimo igual ou acima de 2000");
             }
         }
+
+        public List<string> TransferHistory(int accountNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
