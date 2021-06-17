@@ -75,13 +75,13 @@ namespace TestCase_study_Fintech
         public void shouldgetAccountBalance()
         {
             //arrange
-            var accountNumber = 3289;
+            var accountNumber = 32897;
 
             //act
             var balance = accountService.GetBalance(accountNumber);
 
             //Assert 
-            Assert.That(balance, Is.EqualTo(balance>=0));
+            Assert.That(balance>0);
         }
 
 

@@ -30,6 +30,12 @@ namespace Case_study_Fintech.Repositories
             return accounts.FirstOrDefault(c=>c.AccountNumber == numConta);
         }
 
+        public Decimal GetBalance(int? numConta)
+        {
+            return accounts.Where(c => c.AccountNumber == numConta).Select(c => c.Balance).FirstOrDefault();
+        }
+
+
         public Account AddAccount(Account account) {
             accounts.Add(account);
 

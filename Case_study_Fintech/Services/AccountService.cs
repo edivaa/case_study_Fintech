@@ -39,7 +39,7 @@ namespace Case_study_Fintech.Services
 
         public decimal GetBalance(int accountNumber)
         {
-            throw new NotImplementedException();
+            return accountRepository.GetBalance(accountNumber);
         }
     }
 }
