@@ -10,10 +10,12 @@ namespace Case_study_Fintech.Services
     public class TransactionService
     {
         readonly AccountService accountService;
+        readonly TransactionRepository transactionRepository;
 
         public TransactionService()
         {
             accountService = new AccountService();
+            transactionRepository = new TransactionRepository();
         }
         public List<Account> GetAccounts()
         {
@@ -52,9 +54,9 @@ namespace Case_study_Fintech.Services
             }
         }
 
-        public List<string> TransferHistory(int accountNumber)
+        public List<Transaction> TransferHistory(int accountNumber)
         {
-            throw new NotImplementedException();
+            return transactionRepository.GetTransactions(accountNumber);
         }
     }
 }
