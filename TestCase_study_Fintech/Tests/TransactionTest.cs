@@ -20,7 +20,7 @@ namespace TestCase_study_Fintech
 
 
         [Test]
-        public void ShouldWithdrawWithBalance()
+        public void ShouldTransferWithBalance()
         {
             //arrange
             var accountNumber = 12556;
@@ -49,7 +49,7 @@ namespace TestCase_study_Fintech
         }
 
         [Test]
-        public void ShouldReturnErrorBalanceLessThanWithdrawalAmount()
+        public void ShouldReturnErrorBalanceLessThanTransferAmount()
         {
             //arrange Balance =1000000
             var accountNumber = 12556;
@@ -63,7 +63,7 @@ namespace TestCase_study_Fintech
         }
 
         [Test]
-        public void ShouldRetornErrorMinimumAmountAllowedForWithdrawal()
+        public void ShouldRetornErrorMinimumAmountAllowedForTransfer()
         {
 
             //arrange
