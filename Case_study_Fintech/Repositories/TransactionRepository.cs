@@ -9,14 +9,15 @@ namespace Case_study_Fintech.Repositories
     public class TransactionRepository
     {
         private List<Transaction> transacoes;
+        private Random random = new Random();
 
         public TransactionRepository()
         {
             transacoes = new List<Transaction>() {
-                new Transaction() { TransactionID =1 ,AccountNumber=12556, TransactionDate = new DateTime(2021,2,4),TransactionValue =50000 },
-                new Transaction() { TransactionID =2 ,AccountNumber=12556, TransactionDate = new DateTime(2021,1,5),TransactionValue =40000 },
-                new Transaction() { TransactionID =3 ,AccountNumber=45896, TransactionDate = new DateTime(2021,1,6),TransactionValue =9000  },
-                new Transaction() { TransactionID =4 ,AccountNumber=58996, TransactionDate = new DateTime(2021,5,6),TransactionValue =2001  }
+                new Transaction() { TransactionID =1 ,AccountNumber=12556, TransactionDate = new DateTime(2021,2,4), TransactionType="D", TransactionValue =50000 },
+                new Transaction() { TransactionID =2 ,AccountNumber=12556, TransactionDate = new DateTime(2021,1,5), TransactionType="D", TransactionValue =40000 },
+                new Transaction() { TransactionID =3 ,AccountNumber=45896, TransactionDate = new DateTime(2021,1,6), TransactionType="D", TransactionValue =9000  },
+                new Transaction() { TransactionID =4 ,AccountNumber=58996, TransactionDate = new DateTime(2021,5,6), TransactionType="D", TransactionValue =2001  }
             };
 
         }
@@ -32,12 +33,13 @@ namespace Case_study_Fintech.Repositories
         {
             return transacoes.FirstOrDefault(t => t.TransactionID == transactionId);
         }
-        public Transaction AddTrasaction(Transaction account) {
+        public Transaction AddTrasaction(Transaction transaction) {
 
-            account.TransactionID = 2266;
-            transacoes.Add(account);
+            transaction.TransactionID = random.Next(5, 100000);
 
-            return GetTransaction(account.TransactionID);
+            transacoes.Add(transaction);
+
+            return transaction;
         }
 
     }
