@@ -69,6 +69,21 @@ namespace TestCase_study_Fintech
             //act //assert 
             Assert.Throws<Exception>(() => accountService.CreateAnAccount(account));
         }
-    
+
+
+        [Test]
+        public void shouldgetAccountBalance()
+        {
+            //arrange
+            var accountNumber = 3289;
+
+            //act
+            var balance = accountService.GetBalance(accountNumber);
+
+            //Assert 
+            Assert.That(balance, Is.EqualTo(balance>=0));
+        }
+
+
     }
 }

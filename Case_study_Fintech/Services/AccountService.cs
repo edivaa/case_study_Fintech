@@ -35,5 +35,11 @@ namespace Case_study_Fintech.Services
 
                return account;
         }
+
+
+        public decimal GetBalance(int accountNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
