@@ -27,7 +27,7 @@ namespace TestCase_study_Fintech
             var value = 2001;
 
             //act
-            var withdrawalValue = transactionService.WithdrawMoneyByPix(accountNumber, value);
+            var withdrawalValue = transactionService.TransferByPix(accountNumber, value);
 
             //Assert 
             Assert.IsTrue(withdrawalValue > 0);
@@ -42,7 +42,7 @@ namespace TestCase_study_Fintech
 
 
             //assert 
-            Assert.That(() => transactionService.WithdrawMoneyByPix(accountNumber, value),
+            Assert.That(() => transactionService.TransferByPix(accountNumber, value),
              Throws.TypeOf<Exception>()
              .With.Matches<Exception>(mess => mess.Message == "Conta sem saldo"));
 
@@ -56,7 +56,7 @@ namespace TestCase_study_Fintech
             var value = 1100000;
 
             //Act //assert 
-            Assert.That(() => transactionService.WithdrawMoneyByPix(accountNumber, value),
+            Assert.That(() => transactionService.TransferByPix(accountNumber, value),
                 Throws.TypeOf<Exception>()
                 .With.Matches<Exception>(mess => mess.Message == "valor acima do saldo"));
 
@@ -72,7 +72,7 @@ namespace TestCase_study_Fintech
 
 
             //assert 
-            Assert.That(() => transactionService.WithdrawMoneyByPix(accountNumber, value),
+            Assert.That(() => transactionService.TransferByPix(accountNumber, value),
              Throws.TypeOf<Exception>()
              .With.Matches<Exception>(mess => mess.Message == "Valor minimo igual ou acima de 2000"));
 

@@ -20,7 +20,7 @@ namespace Case_study_Fintech.Services
             return accountService.GetAccounts();
         }
 
-        public Decimal WithdrawMoneyByPix(int? accountNumber, decimal value) {
+        public Decimal TransferByPix(int? accountNumber, decimal value) {
 
             var account = accountService.GetAccount(accountNumber);
           
