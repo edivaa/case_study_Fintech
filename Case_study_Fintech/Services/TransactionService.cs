@@ -17,17 +17,15 @@ namespace Case_study_Fintech.Services
             accountService = new AccountService();
             transactionRepository = new TransactionRepository();
         }
-        public List<Account> GetAccounts()
-        {
-            return accountService.GetAccounts();
-        }
-
+     
         public Decimal TransferByPix(int? accountNumber, decimal value) {
 
             var account = accountService.GetAccount(accountNumber);
           
             ValidateAccountBalance(account, value);
-            ValidateMinimumAmountAllowedWithdrawal(value);
+             ValidateMinimumAmountAllowedWithdrawal(value);
+
+            transactionRepository.AddTrasaction(new Transaction() { AccountNumber = accountNumber, TransactionDate = DateTime.Now, TransactionType = "T" });
 
             return account.Balance - value;
         }

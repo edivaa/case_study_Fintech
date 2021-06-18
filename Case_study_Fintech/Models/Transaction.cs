@@ -11,6 +11,6 @@ namespace Case_study_Fintech.Repositories
         public DateTime TransactionDate { get; set; }
         public decimal TransactionValue { get; set; }
         public string TransactionType { get; set; }
-        public int AccountNumber { get; set; }
+        public int? AccountNumber { get; set; }
     }
 }
