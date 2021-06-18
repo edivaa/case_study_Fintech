@@ -80,6 +80,23 @@ namespace TestCase_study_Fintech
 
 
         [Test]
+        public void ShouldRetornErrorAccountDoesNotExist()
+        {
+
+            //arrange
+            var accountNumber = 889995;
+            var value = 2005;
+
+
+            //assert 
+            Assert.That(() => transactionService.TransferByPix(accountNumber, value),
+             Throws.TypeOf<Exception>()
+             .With.Matches<Exception>(mess => mess.Message == "A conta não existe"));
+
+        }
+
+
+        [Test]
         public void ShouldReturnTransferHistory()
         {
 
