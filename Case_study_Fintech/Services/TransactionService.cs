@@ -21,8 +21,9 @@ namespace Case_study_Fintech.Services
         public Decimal TransferByPix(int? accountNumber, decimal value) {
 
             var account = accountService.GetAccount(accountNumber);
-          
-            ValidateAccountBalance(account, value);
+
+             ValidateAccount(account);
+             ValidateAccountBalance(account, value);
              ValidateMinimumAmountAllowedWithdrawal(value);
 
             transactionRepository.AddTrasaction(new Transaction() { AccountNumber = accountNumber, TransactionDate = DateTime.Now, TransactionType = "T" });
@@ -49,6 +50,14 @@ namespace Case_study_Fintech.Services
             if (value < 2000)
             {
                 throw new Exception("Valor minimo igual ou acima de 2000");
+            }
+        }
+
+        public void ValidateAccount(Account account)
+        {
+            if (account == null)
+            {
+                throw new Exception("A conta não existe");
             }
         }
 
