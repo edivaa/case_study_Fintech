@@ -10,10 +10,10 @@ namespace Case_study_Fintech.Services
     {
       
 
-        public User GetAuthentication(User newLogin)
+        public User Authentication(User user)
         {
            
-            return ApiAuthentication(newLogin.UserName, newLogin.Password);
+            return ApiAuthentication(user.UserName, user.Password);
         }
 
 

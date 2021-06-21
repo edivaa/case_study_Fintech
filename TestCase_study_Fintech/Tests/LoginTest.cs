@@ -23,7 +23,7 @@ namespace TestCase_study_Fintech
             //arrange
             var login = new User() { UserName = "paulo", Password = "25636" };
             //act
-            var newLogin = loginService.GetAuthentication(login);
+            var newLogin = loginService.Authentication(login);
 
             //Assert 
             Assert.That(newLogin.UserName, Is.EqualTo(login.UserName));
