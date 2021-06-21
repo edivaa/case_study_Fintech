@@ -12,16 +12,9 @@ namespace Case_study_Fintech.Services
 
         public User Authentication(User user)
         {
-            try
-            {
+        
                 return ApiAuthentication(user.UserName, user.Password);
 
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("Usuário não existe");
-            }
         }
 
 
