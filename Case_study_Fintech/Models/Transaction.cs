@@ -7,7 +7,7 @@ namespace Case_study_Fintech.Repositories
 {
     public class Transaction
     {
-        public int TransactionID { get; set; }
+        public int Id { get; set; }
         public DateTime TransactionDate { get; set; }
         public decimal TransactionValue { get; set; }
         public string TransactionType { get; set; }
