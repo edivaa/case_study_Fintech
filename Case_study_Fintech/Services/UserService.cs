@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Case_study_Fintech.Services
 {
-    public class LoginService
+    public class UserService
     {
       
 

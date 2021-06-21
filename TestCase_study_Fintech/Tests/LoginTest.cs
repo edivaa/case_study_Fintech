@@ -8,12 +8,12 @@ namespace TestCase_study_Fintech
     [Category("NUnit")]
     public class LoginTest
     {
-         private LoginService loginService;  
+         private UserService loginService;  
 
         [SetUp]
         public void Setup()
         {
-             loginService = new LoginService();
+             loginService = new UserService();
         }
 
 
