@@ -21,7 +21,7 @@ namespace TestCase_study_Fintech
         public void ShouldAuthenticateWithValidUser()
         {
             //arrange
-            var login = new Login() { UserName = "paulo", Password = "25636" };
+            var login = new User() { UserName = "paulo", Password = "25636" };
             //act
             var newLogin = loginService.GetAuthentication(login);
 

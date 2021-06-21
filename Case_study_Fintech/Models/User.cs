@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Case_study_Fintech.Models
 {
-    public class Login
+    public class User
     {
         public string UserName { get; set; }
         public string Password { get; set; }

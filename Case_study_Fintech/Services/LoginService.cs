@@ -10,7 +10,7 @@ namespace Case_study_Fintech.Services
     {
       
 
-        public Login GetAuthentication(Login newLogin)
+        public User GetAuthentication(User newLogin)
         {
            
             return ApiAuthentication(newLogin.UserName, newLogin.Password);
@@ -18,10 +18,10 @@ namespace Case_study_Fintech.Services
 
 
 
-        private Login ApiAuthentication(string userName, string password)
+        private User ApiAuthentication(string userName, string password)
         {
-           List<Login> loginList = new List<Login> { 
-               new Login { UserName = "paulo", Password = "25636" }
+           List<User> loginList = new List<User> { 
+               new User { UserName = "paulo", Password = "25636" }
            };
 
 
