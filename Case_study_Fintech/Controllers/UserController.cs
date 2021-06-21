@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Case_study_Fintech.Models;
+using Case_study_Fintech.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 
 namespace Case_study_Fintech.Controllers
 {
@@ -13,26 +13,19 @@ namespace Case_study_Fintech.Controllers
     {
       
         private readonly ILogger<UserController> _logger;
+        private readonly UserService UserService; 
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
+            UserService = new  UserService();
         }
 
         [HttpPost]
         public IActionResult Post(string login, string password)
         {
 
-            return Ok(ValidarLogin(login, password));
-        }
-
-        private string ValidarLogin(string login, string password){
-
-                if(login.Equals("edivaa") && password.Equals("1345")) {
-                    return  "Login relizado com sucesso";
-                }
-
-               throw new  Exception("Login nao realizado");
+            return Ok(UserService.Authentication(new User() { UserName= login, Password = password }));
         }
 
     }
