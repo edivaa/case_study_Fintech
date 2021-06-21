@@ -8,12 +8,12 @@ namespace TestCase_study_Fintech
     [Category("NUnit")]
     public class LoginTest
     {
-         private UserService loginService;  
+         private UserService userService;  
 
         [SetUp]
         public void Setup()
         {
-             loginService = new UserService();
+             userService = new UserService();
         }
 
 
@@ -23,10 +23,23 @@ namespace TestCase_study_Fintech
             //arrange
             var login = new User() { UserName = "paulo", Password = "25636" };
             //act
-            var newLogin = loginService.Authentication(login);
+            var newLogin = userService.Authentication(login);
 
             //Assert 
             Assert.That(newLogin.UserName, Is.EqualTo(login.UserName));
+        }
+
+        [Test]
+        public void ShouldMustNotAuthenticateInvalidUserOrPassword()
+        {
+            //arrange
+            var user = new User() { UserName = "adriano", Password = "25636" };
+
+
+            //act //assert 
+            Assert.That(() => userService.Authentication(user),
+             Throws.TypeOf<Exception>()
+             .With.Matches<Exception>(mess => mess.Message == "Usuário não existe"));
         }
     }
 }
