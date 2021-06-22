@@ -16,7 +16,6 @@ namespace TestCase_study_Fintech
             accountService = new AccountService();
         }
 
-
         [Test]
         public void ShouldGetAccounts()
         {
@@ -57,9 +56,7 @@ namespace TestCase_study_Fintech
             Assert.That(newAccount.AccountNumber, Is.EqualTo(account.AccountNumber));
         }
 
-
-
-        [Test, Description("Não deve criar uma Conta")]
+        [Test, Description("Nï¿½o deve criar uma Conta")]
         //[TestCase(new Conta() { Nome = "Paulo Santos", Email = "paulo@gmail.com", NumConta = 32897, Saldo = 0 }) ]
         public void ShouldNotCreateAnAccount()
         {
@@ -69,7 +66,6 @@ namespace TestCase_study_Fintech
             //act //assert 
             Assert.Throws<Exception>(() => accountService.CreateAnAccount(account));
         }
-
 
         [Test]
         public void shouldgetAccountBalance()
@@ -83,7 +79,5 @@ namespace TestCase_study_Fintech
             //Assert 
             Assert.That(balance>0);
         }
-
-
     }
 }
