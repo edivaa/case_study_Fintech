@@ -13,7 +13,7 @@ namespace Case_study_Fintech.Services
         public User Authentication(User user)
         {
         
-                return ApiAuthentication(user.Name, user.Password);
+                return ApiAuthentication(user.Email, user.Password);
 
         }
 
