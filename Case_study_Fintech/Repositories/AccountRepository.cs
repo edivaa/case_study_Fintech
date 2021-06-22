@@ -13,10 +13,10 @@ namespace Case_study_Fintech.Repositories
         public AccountRepository()
         {
           accounts  = new List<Account>() {
-                new Account() { Name = "Antonio", LastName = "Santos", Email = "antonio@gmail.com", AccountNumber = 12556, Balance =1000000 },
-                new Account() { Name = "Aiton", LastName = "Rosa", Email = "aiton@gmail.com", AccountNumber = 32897, Balance =4000000 },
-                new Account() { Name = "Tamara", LastName = "Pitanga", Email = "tamara@gmail.com", AccountNumber = 45896, Balance =9000000 },
-                new Account() { Name = "Robson", LastName = "Santana", Email="robson@gmail.com"   , AccountNumber=58996, Balance =0 }
+                new Account() { User = new  User() { Name = "Antonio", LastName = "Santos", Email = "antonio@gmail.com" }, AccountNumber = 12556, Balance =1000000 },
+                new Account() { User = new  User() { Name = "Aiton", LastName = "Rosa", Email = "aiton@gmail.com" }, AccountNumber = 32897, Balance =4000000 },
+                new Account() { User = new  User() { Name = "Tamara", LastName = "Pitanga", Email = "tamara@gmail.com" }, AccountNumber = 45896, Balance =9000000 },
+                new Account() { User = new  User() { Name = "Robson", LastName = "Santana", Email="robson@gmail.com"}, AccountNumber=58996, Balance =0 }
         };
         }
 

@@ -46,14 +46,14 @@ namespace TestCase_study_Fintech
         public void shouldCreateAnAccountg()
         {
             //arrange
-            var account = new Account() { Name = "Paulo Santos", Email="paulo@gmail.com", AccountNumber=0, Balance =0 }; 
+            var account = new Account() { User = new User() { Name = "Paulo Santos", Email = "paulo@gmail.com" }, AccountNumber=0, Balance =0 }; 
 
             //act
             var newAccount = accountService.CreateAnAccount(account);
 
             //Assert 
-            Assert.AreEqual(newAccount.Name, account.Name);
-            Assert.AreEqual(newAccount.Email, account.Email);
+            Assert.AreEqual(newAccount.User.Name, account.User.Name);
+            Assert.AreEqual(newAccount.User.Email, account.User.Email);
             Assert.That(newAccount.AccountNumber, Is.EqualTo(account.AccountNumber));
         }
 
@@ -64,7 +64,7 @@ namespace TestCase_study_Fintech
         public void ShouldNotCreateAnAccount()
         {
             //arrange
-            var account = new Account() { Name = "Paulo Santos", Email = "paulo@gmail.com", AccountNumber = 32897, Balance = 0 };
+            var account = new Account() { User = new User() { Name = "Paulo Santos", Email = "paulo@gmail.com" }, AccountNumber = 32897, Balance = 0 };
 
             //act //assert 
             Assert.Throws<Exception>(() => accountService.CreateAnAccount(account));

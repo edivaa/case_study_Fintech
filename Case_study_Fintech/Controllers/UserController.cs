@@ -25,7 +25,7 @@ namespace Case_study_Fintech.Controllers
         public IActionResult Post(string login, string password)
         {
 
-            return Ok(UserService.Authentication(new User() { UserName= login, Password = password }));
+            return Ok(UserService.Authentication(new User() { Name= login, Password = password }));
         }
 
     }

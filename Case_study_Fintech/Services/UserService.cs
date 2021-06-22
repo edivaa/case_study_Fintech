@@ -13,7 +13,7 @@ namespace Case_study_Fintech.Services
         public User Authentication(User user)
         {
         
-                return ApiAuthentication(user.UserName, user.Password);
+                return ApiAuthentication(user.Name, user.Password);
 
         }
 
@@ -22,10 +22,10 @@ namespace Case_study_Fintech.Services
         private User ApiAuthentication(string userName, string password)
         {
             List<User> loginList = new List<User> {
-               new User { UserName = "paulo", Password = "25636" }
+               new User { Name = "paulo", Password = "25636" }
            };
 
-            var user = loginList.FirstOrDefault(user => user.UserName.Equals(userName) && user.Password.Equals(password));
+            var user = loginList.FirstOrDefault(user => user.Name.Equals(userName) && user.Password.Equals(password));
 
             if (user == null) throw new Exception("Usuário não existe");
 

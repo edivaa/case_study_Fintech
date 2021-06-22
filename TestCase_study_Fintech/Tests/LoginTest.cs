@@ -21,19 +21,19 @@ namespace TestCase_study_Fintech
         public void ShouldAuthenticateWithValidUser()
         {
             //arrange
-            var login = new User() { UserName = "paulo", Password = "25636" };
+            var login = new User() { Name = "paulo", Password = "25636" };
             //act
             var newLogin = userService.Authentication(login);
 
             //Assert 
-            Assert.That(newLogin.UserName, Is.EqualTo(login.UserName));
+            Assert.That(newLogin.Name, Is.EqualTo(login.Name));
         }
 
         [Test]
         public void ShouldMustNotAuthenticateInvalidUserOrPassword()
         {
             //arrange
-            var user = new User() { UserName = "adriano", Password = "25636" };
+            var user = new User() { Name = "adriano", Password = "25636" };
 
 
             //act //assert 
