@@ -21,7 +21,7 @@ namespace TestCase_study_Fintech
         public void ShouldAuthenticateWithValidUser()
         {
             //arrange
-            var login = new User() { Name = "paulo", Password = "25636" };
+            var login = new User() { Name = "paulo", Email = "paulo@gmail.com", Password = "25636" };
             //act
             var newLogin = userService.Authentication(login);
 
@@ -33,7 +33,7 @@ namespace TestCase_study_Fintech
         public void ShouldMustNotAuthenticateInvalidUserOrPassword()
         {
             //arrange
-            var user = new User() { Name = "adriano", Password = "25636" };
+            var user = new User() { Name = "adriano", Email="adriano@gmail.com", Password = "25636" };
 
 
             //act //assert 

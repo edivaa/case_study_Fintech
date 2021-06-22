@@ -19,13 +19,13 @@ namespace Case_study_Fintech.Services
 
 
 
-        private User ApiAuthentication(string userName, string password)
+        private User ApiAuthentication(string email, string password)
         {
             List<User> loginList = new List<User> {
-               new User { Name = "paulo", Password = "25636" }
+               new User { Name = "paulo", Email = "paulo@gmail.com", Password = "25636" }
            };
 
-            var user = loginList.FirstOrDefault(user => user.Name.Equals(userName) && user.Password.Equals(password));
+            var user = loginList.FirstOrDefault(user => user.Email.Equals(email) && user.Password.Equals(password));
 
             if (user == null) throw new Exception("Usuário não existe");
 
