@@ -27,7 +27,7 @@ namespace Case_study_Fintech.Services.Implementations
 
             var user = loginList.FirstOrDefault(user => user.Email.Equals(email) && user.Password.Equals(password));
 
-            if (user == null) throw new Exception("Usuário não existe");
+            if (user == null) throw new EntryPointNotFoundException("Usuário não existe");
 
             return user ;
         }

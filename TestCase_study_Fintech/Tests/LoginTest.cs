@@ -30,7 +30,7 @@ namespace TestCase_study_Fintech
         }
 
         [Test]
-        public void ShouldMustNotAuthenticateInvalidUserOrPassword()
+        public void ShouldNotAuthenticateInvalidUserOrPassword()
         {
             //arrange
             var user = new User() { Name = "adriano", Email="adriano@gmail.com", Password = "25636" };
@@ -38,8 +38,8 @@ namespace TestCase_study_Fintech
 
             //act //assert 
             Assert.That(() => userService.Authentication(user),
-             Throws.TypeOf<Exception>()
-             .With.Matches<Exception>(mess => mess.Message == "Usuário não existe"));
+             Throws.TypeOf<EntryPointNotFoundException>()
+             .With.Matches<EntryPointNotFoundException>(mess => mess.Message == "Usuário não existe"));
         }
     }
 }
