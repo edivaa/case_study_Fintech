@@ -25,6 +25,8 @@ namespace Case_study_Fintech.Services.Implementations
                new User { Name = "paulo", Email = "paulo@gmail.com", Password = "25636" }
            };
 
+            if (email == null || password == null) throw new ArgumentNullException("Dados inválidos");
+
             var user = loginList.FirstOrDefault(user => user.Email.Equals(email) && user.Password.Equals(password));
 
             if (user == null) throw new EntryPointNotFoundException("Usuário não existe");
