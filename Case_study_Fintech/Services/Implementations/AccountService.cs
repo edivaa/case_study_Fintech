@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Case_study_Fintech.Services.Implementations
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         readonly AccountRepository accountRepository;
          private Random random = new Random();
