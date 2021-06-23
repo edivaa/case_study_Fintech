@@ -1,5 +1,6 @@
 ﻿using System;
 using Case_study_Fintech.Models;
+using Case_study_Fintech.Services;
 using Case_study_Fintech.Services.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,12 +14,12 @@ namespace Case_study_Fintech.Controllers
     {
       
         private readonly ILogger<UserController> _logger;
-        private readonly UserService UserService; 
+        private readonly IUserService UserService; 
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(ILogger<UserController> logger, IUserService userService)
         {
             _logger = logger;
-            UserService = new  UserService();
+            UserService = userService;
         }
 
         [HttpPost]

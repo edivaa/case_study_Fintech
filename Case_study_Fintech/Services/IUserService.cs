@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Case_study_Fintech.Services
 {
-    interface IUserService
+    public interface IUserService
     {
         public User Authentication(User user);
     }
