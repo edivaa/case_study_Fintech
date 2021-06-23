@@ -41,5 +41,18 @@ namespace TestCase_study_Fintech
              Throws.TypeOf<EntryPointNotFoundException>()
              .With.Matches<EntryPointNotFoundException>(mess => mess.Message == "Usuário não existe"));
         }
+
+        [Test]
+        public void ShouldNotAuthenticatenoPasswordOrUser()
+        {
+            //arrange
+            var user = new User() { Name = "adriano", Email = null, Password = "25636" };
+
+            
+            //act //assert 
+            Assert.That(() => userService.Authentication(user),
+             Throws.TypeOf<ArgumentNullException>()
+             .With.Matches<ArgumentNullException>(mess => mess.Message == "Dados inválidos"));
+        }
     }
 }
