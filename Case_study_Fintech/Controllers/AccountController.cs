@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Case_study_Fintech.Models;
+using Case_study_Fintech.Services;
 using Case_study_Fintech.Services.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,12 +16,12 @@ namespace Case_study_Fintech.Controllers
     {
       
         private readonly ILogger<AccountController> _logger;
-        private readonly AccountService AccountService;
+        private readonly IAccountService AccountService;
 
-        public AccountController(ILogger<AccountController> logger)
+        public AccountController(ILogger<AccountController> logger, IAccountService accountService)
         {
             _logger = logger;
-            AccountService = new AccountService();
+            AccountService = accountService;
         }
 
         [HttpPost("Create account")]

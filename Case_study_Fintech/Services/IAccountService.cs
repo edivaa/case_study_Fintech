@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Case_study_Fintech.Services
 {
-    interface IAccountService
+    public interface IAccountService
     {
         public List<Account> GetAccounts();
         public Account GetAccount(int? id);
