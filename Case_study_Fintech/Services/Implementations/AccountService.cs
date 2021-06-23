@@ -1,5 +1,5 @@
 ﻿using Case_study_Fintech.Models;
-using Case_study_Fintech.Repositories;
+using Case_study_Fintech.Repositories.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;

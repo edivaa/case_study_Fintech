@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Case_study_Fintech.Repositories
+namespace Case_study_Fintech.Repositories.Implementations
 {
     public class AccountRepository
     {

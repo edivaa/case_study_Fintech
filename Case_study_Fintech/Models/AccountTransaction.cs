@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Case_study_Fintech.Repositories
+
+namespace Case_study_Fintech.Models
 {
-    public class Transaction
+    public class AccountTransaction
     {
         public int Id { get; set; }
         public DateTime TransactionDate { get; set; }

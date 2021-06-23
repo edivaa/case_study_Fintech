@@ -1,9 +1,8 @@
 ﻿using Case_study_Fintech.Models;
-using Case_study_Fintech.Repositories;
+using Case_study_Fintech.Repositories.Implementations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Case_study_Fintech.Services.Implementations
 {
@@ -26,7 +25,7 @@ namespace Case_study_Fintech.Services.Implementations
              ValidateAccountBalance(account, value);
              ValidateMinimumAmountAllowedWithdrawal(value);
 
-            transactionRepository.AddTrasaction(new Transaction() { AccountNumber = accountNumber, TransactionDate = DateTime.Now, TransactionType = "T" });
+            transactionRepository.AddTrasaction(new AccountTransaction() { AccountNumber = accountNumber, TransactionDate = DateTime.Now, TransactionType = "T" });
 
             return account.Balance - value;
         }
@@ -61,7 +60,7 @@ namespace Case_study_Fintech.Services.Implementations
             }
         }
 
-        public List<Transaction> TransferHistory(int accountNumber)
+        public List<AccountTransaction> TransferHistory(int accountNumber)
         {
             return transactionRepository.GetTransactions(accountNumber);
         }

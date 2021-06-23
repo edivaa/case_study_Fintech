@@ -1,7 +1,8 @@
-﻿using Case_study_Fintech.Services.Implementations;
+﻿using Case_study_Fintech.Models;
+using Case_study_Fintech.Services.Implementations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Case_study_Fintech.Repositories;
+
 
 namespace Case_study_Fintech.Controllers
 {
@@ -20,7 +21,7 @@ namespace Case_study_Fintech.Controllers
         }
 
         [HttpPost("Create transaction")]
-        public IActionResult Post(Transaction transacao)
+        public IActionResult Post(AccountTransaction transacao)
          {
             return Ok(transactionService.TransferByPix(transacao.AccountNumber, transacao.TransactionValue));
         }
