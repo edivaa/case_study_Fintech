@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Case_study_Fintech.Repositories;
+using Case_study_Fintech.Repositories.Implementations;
 using Case_study_Fintech.Services;
 using Case_study_Fintech.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +33,7 @@ namespace Case_study_Fintech
 
             services.AddControllers();
 
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IUserService, UserService>();

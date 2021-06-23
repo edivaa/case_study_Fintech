@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Case_study_Fintech.Repositories.Implementations
 {
-    public class AccountRepository
+    public class AccountRepository : IAccountRepository
     {
         private List<Account> accounts;
 

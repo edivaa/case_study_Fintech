@@ -8,18 +8,18 @@ namespace Case_study_Fintech.Services.Implementations
 {
     public class TransactionService : ITransactionService
     {
-        readonly AccountService accountService;
+        readonly IAccountService AccountService;
         readonly TransactionRepository transactionRepository;
 
-        public TransactionService()
+        public TransactionService(IAccountService accountService)
         {
-            accountService = new AccountService();
+            AccountService = accountService;
             transactionRepository = new TransactionRepository();
         }
      
         public Decimal TransferByPix(int? accountNumber, decimal value) {
 
-            var account = accountService.GetAccount(accountNumber);
+            var account = AccountService.GetAccount(accountNumber);
 
              ValidateAccount(account);
              ValidateAccountBalance(account, value);

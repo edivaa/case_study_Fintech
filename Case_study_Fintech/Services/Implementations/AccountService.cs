@@ -1,4 +1,5 @@
 ﻿using Case_study_Fintech.Models;
+using Case_study_Fintech.Repositories;
 using Case_study_Fintech.Repositories.Implementations;
 using System;
 using System.Collections.Generic;
@@ -9,28 +10,28 @@ namespace Case_study_Fintech.Services.Implementations
 {
     public class AccountService : IAccountService
     {
-        readonly AccountRepository accountRepository;
+        readonly IAccountRepository AccountRepository;
          private Random random = new Random();
-        public AccountService()
+        public AccountService(IAccountRepository accountRepository)
         {
-            accountRepository = new AccountRepository();
+            AccountRepository = accountRepository;
         }
         public List<Account> GetAccounts()
         {
-            return accountRepository.GetAccounts();
+            return AccountRepository.GetAccounts();
         }
         public Account GetAccount(int? id)
         {
-            return accountRepository.GetAccount(id);
+            return AccountRepository.GetAccount(id);
         }
         public Account CreateAnAccount(Account account) {
 
-               var thereIsAnAccount = accountRepository.GetAccount(account.AccountNumber);
+               var thereIsAnAccount = AccountRepository.GetAccount(account.AccountNumber);
                if(thereIsAnAccount != null) {
                    throw new Exception("Conta ja existe");
                }else {
                    account.AccountNumber = random.Next(0, 10000);
-                   accountRepository.AddAccount(account);
+                   AccountRepository.AddAccount(account);
                }
 
                return account;
@@ -39,7 +40,7 @@ namespace Case_study_Fintech.Services.Implementations
 
         public decimal GetBalance(int accountNumber)
         {
-            return accountRepository.GetBalance(accountNumber);
+            return AccountRepository.GetBalance(accountNumber);
         }
     }
 }
