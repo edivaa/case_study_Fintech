@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Case_study_Fintech.Services.Implementations
 {
-    public class TransactionService
+    public class TransactionService : ITransactionService
     {
         readonly AccountService accountService;
         readonly TransactionRepository transactionRepository;
