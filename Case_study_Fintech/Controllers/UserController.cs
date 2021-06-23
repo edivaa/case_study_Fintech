@@ -23,10 +23,26 @@ namespace Case_study_Fintech.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(string login, string password)
+        public IActionResult Post([FromBody] User user)
         {
+            try
+            {
+                return Ok(UserService.Authentication(user));
+            }
+            catch (ArgumentNullException)
+            {
+                return BadRequest();
 
-            return Ok(UserService.Authentication(new User() { Email= login, Password = password }));
+            }
+            catch (EntryPointNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Erro no Servidor :"+e.Message);
+            }
         }
 
     }
