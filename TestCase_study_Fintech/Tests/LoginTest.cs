@@ -46,13 +46,13 @@ namespace TestCase_study_Fintech
         public void ShouldNotAuthenticatenoPasswordOrUser()
         {
             //arrange
-            var user = new User() { Name = "adriano", Email = null, Password = "25636" };
+            var user = new User() { Name = "adriano", Password = "25636" };
 
             
             //act //assert 
             Assert.That(() => userService.Authentication(user),
              Throws.TypeOf<ArgumentNullException>()
-             .With.Matches<ArgumentNullException>(mess => mess.Message == "Dados inválidos"));
+             .With.Matches<ArgumentNullException>(mess => mess.Message == "Value cannot be null. (Parameter 'Dados inválidos')"));
         }
     }
 }
