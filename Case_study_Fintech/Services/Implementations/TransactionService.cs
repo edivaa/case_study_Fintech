@@ -30,7 +30,13 @@ namespace Case_study_Fintech.Services.Implementations
             return account.Balance - value;
         }
 
-        public void ValidateAccountBalance(Account account, decimal value)
+        public List<AccountTransaction> TransferHistory(int accountNumber)
+        {
+            return transactionRepository.GetTransactions(accountNumber);
+        }
+
+
+        private void ValidateAccountBalance(Account account, decimal value)
         {
             if (!account.HasBalance())
             {
@@ -44,7 +50,7 @@ namespace Case_study_Fintech.Services.Implementations
         }
 
 
-        public void ValidateMinimumAmountAllowedWithdrawal(decimal value)
+        private void ValidateMinimumAmountAllowedWithdrawal(decimal value)
         {
             if (value < 2000)
             {
@@ -52,7 +58,7 @@ namespace Case_study_Fintech.Services.Implementations
             }
         }
 
-        public void ValidateAccount(Account account)
+        private void ValidateAccount(Account account)
         {
             if (account == null)
             {
@@ -60,9 +66,6 @@ namespace Case_study_Fintech.Services.Implementations
             }
         }
 
-        public List<AccountTransaction> TransferHistory(int accountNumber)
-        {
-            return transactionRepository.GetTransactions(accountNumber);
-        }
+        
     }
 }
